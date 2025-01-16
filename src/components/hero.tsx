@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Hero: React.FC = () => {
   return (
     <div className="relative  bg-gray-50">
-      <div className="container mx-auto px-4 pt-10 md:pt-32 pb-20">
+      <div className="container mx-auto px-4 pt-10 md:pt-20 pb-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <span className="text-gray-600 uppercase tracking-wider">
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
           <div className="relative h-[20rem] md:h-[500px] block">
             <div className="relative w-full h-full overflow-hidden rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] shadow-lg rounded-doodle flex justify-center items-center">
               <img
-                src={banner || "/placeholder.svg"}
+                src={banner}
                 alt="Portrait photo"
                 className="object-cover object-center w-full h-full"
               />

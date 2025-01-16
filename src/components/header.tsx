@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,16 +18,24 @@ const Header: React.FC = () => {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-900 hover:text-gray-600">Home</Link>
-            <Link to="/about" className="text-gray-900 hover:text-gray-600">About</Link>
-            <Link to="/services" className="text-gray-900 hover:text-gray-600">Services</Link>
-            <Link to="/store" className="text-gray-900 hover:text-gray-600">Store</Link>
-            <Link to="/contact" className="text-gray-900 hover:text-gray-600">Contact</Link>
+            <Link to="/" className="text-gray-900 hover:text-gray-600">
+              Home
+            </Link>
+            <Link to="/about" className="text-gray-900 hover:text-gray-600">
+              About
+            </Link>
+            <Link to="/services" className="text-gray-900 hover:text-gray-600">
+              Services
+            </Link>
+            <Link to="/store" className="text-gray-900 hover:text-gray-600">
+              Store
+            </Link>
+            <Link to="/contact" className="text-gray-900 hover:text-gray-600">
+              Contact
+            </Link>
+         
           </nav>
-
-          <Link to="/contact" className="hidden md:block bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-800">
-            Contact Me
-          </Link>
+ 
 
           <button
             onClick={toggleMobileMenu}
@@ -61,7 +69,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="mt-4 md:hidden bg-gray-50 border-t border-gray-200">
+          <nav className="mt-4 md:hidden bg-gray-50 w-full  border-t border-gray-200">
             <Link
               to="/"
               className="block py-2 px-4 text-gray-900 hover:bg-gray-100"
@@ -90,12 +98,12 @@ const Header: React.FC = () => {
             >
               Store
             </Link>
+            
             <Link
-              to="/contact"
-              className="block py-2 px-4 text-gray-900 hover:bg-gray-100"
-              onClick={toggleMobileMenu}
+              to={"/contact"}
+              className="block bg-gray-900  w-full text-white px-4 py-2 rounded hover:bg-gray-800"
             >
-              Contact
+              Contact Me
             </Link>
           </nav>
         )}
