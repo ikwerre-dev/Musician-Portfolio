@@ -1,21 +1,22 @@
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/home";  
+import { BrowserRouter } from "react-router-dom";
+import StorePage from "./pages/store";
+import AboutPage from "./pages/about";
+import ServicesPage from "./pages/services";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Rewrap</h1>
-      <p className="mb-4">
-        This app was created using{" "}
-        <a
-          href="https://github.com/heycalebszn/Rewrap-"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary hover:underline"
-        >
-          Rewrap
-        </a>
-      </p>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/store" element={<StorePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/services" element={<ServicesPage />} />
+    </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+body {
+  font-family: "Space Grotesk";
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
