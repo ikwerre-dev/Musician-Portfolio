@@ -1,12 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      animation: {
+        changingShape: "changingShape 5s infinite ease-in-out",
+      },
+      keyframes: {
+        changingShape: {
+          "0%": { borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" },
+          "25%": { borderRadius: "50% 50% 60% 40% / 40% 60% 50% 50%" },
+          "50%": { borderRadius: "70% 30% 30% 70% / 70% 70% 30% 30%" },
+          "75%": { borderRadius: "60% 40% 40% 60% / 50% 50% 60% 40%" },
+          "100%": { borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%" },
+        },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -50,4 +59,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

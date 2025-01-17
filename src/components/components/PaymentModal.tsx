@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Copy, X } from 'lucide-react';
+import { Copy, X, ExternalLink } from 'lucide-react';
 
 interface PaymentModalProps {
   isOpen: boolean;
@@ -10,8 +10,11 @@ interface PaymentModalProps {
 }
 
 export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, paymentMethod, totalPrice }) => {
-  const [timeLeft, setTimeLeft] = useState(10 * 60 * 60);  
+  const [timeLeft, setTimeLeft] = useState(10 * 60 * 60);
   const [isCopied, setIsCopied] = useState(false);
+
+  const cryptoAddress = 'bc1quy5nqs2nes3yvzpx7c44s0w4yd6clpmjwvgkr7';
+  const telegramHandle = '@the_private_account_for_manager';
 
   useEffect(() => {
     if (isOpen && paymentMethod === 'crypto') {
@@ -34,6 +37,16 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, pay
     navigator.clipboard.writeText(text);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
+  };
+
+  const getMaskedAddress = (address: string) => {
+    const first5 = address.slice(0, 10);
+    const last5 = address.slice(-10);
+    return `${first5}...${last5}`;
+  };
+
+  const openTelegram = (handle: string) => {
+    window.open(`https://t.me/${handle.replace('@', '')}`, '_blank');
   };
 
   if (!isOpen) return null;
@@ -62,11 +75,11 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, pay
           {paymentMethod === 'crypto' && (
             <>
               <p className="mb-4">Please send ${totalPrice} in BTC to the following address:</p>
-              <div className="flex items-center justify-between bg-gray-100 p-2 rounded mb-4">
-                <code className="text-sm">0x1234567890abcdef1234567890abcdef12345678</code>
+              <div className="flex items-center justify-between bg-gray-100 p-3 rounded mb-4">
+                <code className="text-sm font-mono">{getMaskedAddress(cryptoAddress)}</code>
                 <button
-                  onClick={() => copyToClipboard('0x1234567890abcdef1234567890abcdef12345678')}
-                  className="text-blue-500 hover:text-blue-600"
+                  onClick={() => copyToClipboard(cryptoAddress)}
+                  className="flex items-center gap-2 text-blue-500 hover:text-blue-600"
                 >
                   <Copy size={20} />
                 </button>
@@ -83,14 +96,26 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, pay
           {paymentMethod === 'telegram' && (
             <>
               <p className="mb-4">Please contact our management team on Telegram to complete your purchase:</p>
-              <div className="flex items-center justify-between bg-gray-100 p-2 rounded mb-4">
-                <code className="text-sm">@FanExperienceManagement</code>
-                <button
-                  onClick={() => copyToClipboard('@FanExperienceManagement')}
-                  className="text-blue-500 hover:text-blue-600"
-                >
-                  <Copy size={20} />
-                </button>
+              <div className="flex flex-col gap-4 mb-4">
+                <div className="flex items-center justify-between bg-gray-100 p-3 rounded">
+                  <code className="text-sm font-mono">{telegramHandle}</code>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => copyToClipboard(telegramHandle)}
+                      className="text-blue-500 hover:text-blue-600"
+                      title="Copy Telegram handle"
+                    >
+                      <Copy size={20} />
+                    </button>
+                    <button
+                      onClick={() => openTelegram(telegramHandle)}
+                      className="text-blue-500 hover:text-blue-600"
+                      title="Open in Telegram"
+                    >
+                      <ExternalLink size={20} />
+                    </button>
+                  </div>
+                </div>
               </div>
               {isCopied && <p className="text-green-500 text-sm mb-4">Copied to clipboard!</p>}
             </>
@@ -107,3 +132,5 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, pay
     </AnimatePresence>
   );
 };
+
+export default PaymentModal;

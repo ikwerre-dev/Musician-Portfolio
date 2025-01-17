@@ -19,28 +19,33 @@ const Hero: React.FC = () => {
 
             <p className="text-gray-600 text-lg max-w-lg">
               Welcome to my portfolio of captivating digital experiences.
-              Explore my work and let's create something extraordinary together.
+              Explore my work and let&apos;s create something extraordinary together.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link to={'/store'} className="bg-gray-900 text-white px-8 py-3 rounded hover:bg-gray-800">
+              <Link
+                to={"/store"}
+                className="bg-gray-900 text-white px-8 py-3 rounded hover:bg-gray-800"
+              >
                 My Store
               </Link>
-              <Link  to={'/contact'} className="border-2 border-gray-900 px-8 py-3 rounded hover:bg-gray-100">
+              <Link
+                to={"/contact"}
+                className="border-2 border-gray-900 px-8 py-3 rounded hover:bg-gray-100"
+              >
                 Contact Me
               </Link>
             </div>
           </div>
 
-          
           <div className="relative h-[20rem] md:h-[500px] block">
-            <div className="relative w-full h-full overflow-hidden rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] shadow-lg rounded-doodle flex justify-center items-center">
+            <div className="relative w-full h-full overflow-hidden shadow-lg flex justify-center items-center animate-changingShape">
               <img
                 src={banner}
                 alt="Portrait photo"
                 className="object-cover object-center w-full h-full"
               />
-              <div className="absolute inset-0 border-8 border-black opacity-10 rounded-[28%_72%_68%_32%_/_28%_28%_72%_72%]"></div>
+              <div className="absolute inset-0 border-8 border-black opacity-10"></div>
             </div>
           </div>
         </div>

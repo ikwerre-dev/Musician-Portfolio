@@ -417,7 +417,6 @@ const App: React.FC = () => {
                       whileTap={{ scale: 0.95 }}
                       className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300"
                       onClick={() => {
-
                         setIsFinalStage(true);
                       }}
                     >
@@ -442,7 +441,7 @@ const App: React.FC = () => {
                         whileTap={{ scale: 0.95 }}
                         className="w-full bg-black text-white py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300"
                         onClick={() => {
-                          handlePayment("giftcard");
+                          handlePayment("telegram");
                           setIsCheckoutOpen(false);
                           setIsFinalStage(true);
                         }}
