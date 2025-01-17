@@ -76,6 +76,10 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, pay
             <>
               <p className="mb-4">Please send ${totalPrice} in BTC to the following address:</p>
               <div className="flex items-center justify-between bg-gray-100 p-3 rounded mb-4">
+                <code className="text-sm font-mono">BITCOIN (BTC)</code>
+                
+              </div>
+              <div className="flex items-center justify-between bg-gray-100 p-3 rounded mb-4">
                 <code className="text-sm font-mono">{getMaskedAddress(cryptoAddress)}</code>
                 <button
                   onClick={() => copyToClipboard(cryptoAddress)}
