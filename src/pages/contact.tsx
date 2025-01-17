@@ -19,7 +19,7 @@ const ContactPage: React.FC = () => {
   return (
     <main>
       <Header />
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-start pt-[5rem] justify-center p-4">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
           <header className="text-center p-6">
             <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-black p-4">
