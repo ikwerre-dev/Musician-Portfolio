@@ -6,7 +6,7 @@ import StorePage from "./pages/store";
 import AboutPage from "./pages/about";
 import ServicesPage from "./pages/services";
 import { Footer } from "./components/components/Footer";
-import ContactPage from "./pages/home";
+import ContactPage from "./pages/contact";
 
 const App: React.FC = () => {
   return (
